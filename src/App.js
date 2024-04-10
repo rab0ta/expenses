@@ -26,7 +26,6 @@ function App() {
      expenseData={expenses[1]}
      />
       </Card>
-     
     </div>
   );
 }
