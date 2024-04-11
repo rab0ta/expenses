@@ -1,41 +1,42 @@
 import './App.css';
-import Expenses from './components/Expenses/Expenses'
-import NewExpense  from './components/NewExpense/NewExpense';
-import { useState } from 'react';
+import { Expenses } from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
+import React, { useState } from 'react';
 
-const DYMMY_EXPENSES = [
+const DUMMY_EXPENSES = [
   {
-    id: "id1",
-    date: new Date(2024, 10, 4),
-    title: 'New book',
-    price: 30.99
+    "id" : "id1",
+    "date" : new Date(2023, 0, 10),
+    "title" : "New Book",
+    "price" : "30.99"
   },
   {
-    id: 'id2',
-    date: new Date(2024, 10, 4),
-    title: 'new jeans',
-    price: 99.99
+    "id" : "id2",
+    "date" : new Date(2023, 0, 10),
+    "title" : "New Jeans",
+    "price" : "35.99"
   },
   {
-    id: 'id3',
-    date: new Date(2024, 10, 4),
-    title: 'new bag',
-    price: 139.99
+    "id": "id3",
+    "date": new Date(2024, 9, 23),
+    "title": "New TV",
+    "price": "399.99"
   }
 ]
 
 const App = () => {
-  const [expenses, setExpenses] = useState(DYMMY_EXPENSES);
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
 
   const addExpenseHandler = (expense) => {
-    setExpenses((previousExpenses) => {
-      return [expense, ...previousExpenses]
-    })
+    console.log('In App.js')
+    console.log(expense)
+    setExpenses((previousExpenses) => {return [expense, ...previousExpenses]})
   }
+
   return (
     <div className="App">
       <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
-      <Expenses expenses={expenses} />
+      <Expenses expenses={expenses}/>
     </div>
   );
 }
